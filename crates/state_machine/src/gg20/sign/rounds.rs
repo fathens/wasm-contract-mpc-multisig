@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 #![allow(non_snake_case)]
 
 use std::convert::TryFrom;
@@ -14,17 +15,17 @@ use round_based::containers::push::Push;
 use round_based::containers::{self, BroadcastMsgs, P2PMsgs, Store};
 use round_based::Msg;
 
-use crate::utilities::mta::{MessageA, MessageB};
+use mpc_ecdsa::utilities::mta::{MessageA, MessageB};
 
-use crate::protocols::multi_party_ecdsa::gg_2020 as gg20;
-use crate::utilities::zk_pdl_with_slack::PDLwSlackProof;
+use mpc_ecdsa::gg20;
+use mpc_ecdsa::utilities::zk_pdl_with_slack::PDLwSlackProof;
 use curv::cryptographic_primitives::proofs::sigma_correct_homomorphic_elgamal_enc::HomoELGamalProof;
 use curv::cryptographic_primitives::proofs::sigma_valid_pedersen::PedersenProof;
 use gg20::party_i::{
     LocalSignature, SignBroadcastPhase1, SignDecommitPhase1, SignKeys, SignatureRecid,
 };
-use gg20::state_machine::keygen::LocalKey;
-use gg20::ErrorType;
+use crate::gg20::keygen::LocalKey;
+use mpc_ecdsa::ErrorType;
 
 type Result<T, E = Error> = std::result::Result<T, E>;
 
@@ -660,7 +661,7 @@ pub enum Error {
     #[error("round 1: {0:?}")]
     Round1(ErrorType),
     #[error("round 2 stage 3: {0:?}")]
-    Round2Stage3(crate::Error),
+    Round2Stage3(mpc_ecdsa::Error),
     #[error("round 2 stage 4: {0:?}")]
     Round2Stage4(ErrorType),
     #[error("round 3: {0:?}")]
@@ -670,9 +671,9 @@ pub enum Error {
     #[error("round 6: verify proof: {0:?}")]
     Round6VerifyProof(ErrorType),
     #[error("round 6: check sig: {0:?}")]
-    Round6CheckSig(crate::Error),
+    Round6CheckSig(mpc_ecdsa::Error),
     #[error("round 7: {0:?}")]
-    Round7(crate::Error),
+    Round7(mpc_ecdsa::Error),
 }
 
 trait IteratorExt: Iterator {

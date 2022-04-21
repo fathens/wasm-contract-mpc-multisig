@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::fmt;
 
 use round_based::containers::{BroadcastMsgsStore, MessageStore, P2PMsgsStore};

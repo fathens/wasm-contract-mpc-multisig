@@ -16,7 +16,7 @@ use serde::{Deserialize, Serialize};
 use sha2::Sha256;
 use thiserror::Error;
 
-use crate::protocols::multi_party_ecdsa::gg_2020;
+use mpc_ecdsa::gg20 as gg_2020;
 
 mod rounds;
 

@@ -29,17 +29,17 @@ use round_based::{IsCritical, Msg, StateMachine};
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
-use crate::utilities::mta::MessageA;
+use mpc_ecdsa::utilities::mta::MessageA;
 
-use crate::protocols::multi_party_ecdsa::gg_2020 as gg20;
+use mpc_ecdsa::gg20;
 use curv::elliptic::curves::secp256_k1::Secp256k1;
 use gg20::party_i::{SignBroadcastPhase1, SignDecommitPhase1, SignatureRecid};
-use gg20::state_machine::keygen::LocalKey;
+use crate::gg20::keygen::LocalKey;
 
 mod fmt;
 mod rounds;
 
-use crate::utilities::zk_pdl_with_slack::PDLwSlackProof;
+use mpc_ecdsa::utilities::zk_pdl_with_slack::PDLwSlackProof;
 use curv::BigInt;
 use rounds::*;
 pub use rounds::{CompletedOfflineStage, Error as ProceedError, PartialSignature};
@@ -596,8 +596,8 @@ impl IsCritical for Error {
 ///
 /// ## Example
 /// ```no_run
-/// # use multi_party_ecdsa::protocols::multi_party_ecdsa::gg_2020::{
-/// #     state_machine::sign::{CompletedOfflineStage, SignManual, PartialSignature},
+/// # use state_machine::gg20::sign::{CompletedOfflineStage, SignManual, PartialSignature};
+/// # use mpc_ecdsa::gg20::{
 /// #     party_i::{LocalSignature, verify},
 /// # };
 /// # use curv::arithmetic::{BigInt, Converter};
@@ -662,7 +662,7 @@ mod test {
 
     use super::*;
     use gg20::party_i::verify;
-    use gg20::state_machine::keygen::test::simulate_keygen;
+    use crate::gg20::keygen::test::simulate_keygen;
 
     fn simulate_offline_stage(
         local_keys: Vec<LocalKey<Secp256k1>>,
