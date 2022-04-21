@@ -23,7 +23,7 @@ sha2 = "0.9"
 thiserror = "1.0.23"
 zeroize = "1"
 centipede = { version = "0.3", default-features = false }
-libsecp256k1 = "0.3.2"
+libsecp256k1 = "~0.7"
 
 [dependencies.paillier]
 version = "0.4.2"
