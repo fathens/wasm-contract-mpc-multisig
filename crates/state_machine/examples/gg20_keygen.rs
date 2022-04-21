@@ -3,8 +3,8 @@ use futures::StreamExt;
 use std::path::PathBuf;
 use structopt::StructOpt;
 
-use state_machine::gg20::keygen::Keygen;
 use round_based::async_runtime::AsyncProtocol;
+use state_machine::gg20::keygen::Keygen;
 
 mod gg20_sm_client;
 use gg20_sm_client::join_computation;

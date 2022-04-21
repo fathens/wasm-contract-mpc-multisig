@@ -12,11 +12,9 @@ use round_based::containers::{self, BroadcastMsgs, P2PMsgs, Store};
 use round_based::Msg;
 use zk_paillier::zkproofs::DLogStatement;
 
-use mpc_ecdsa::gg20::party_i::{
-    KeyGenBroadcastMessage1, KeyGenDecommitMessage1, Keys,
-};
-use mpc_ecdsa::ErrorType;
 use mpc_ecdsa::gg20 as gg_2020;
+use mpc_ecdsa::gg20::party_i::{KeyGenBroadcastMessage1, KeyGenDecommitMessage1, Keys};
+use mpc_ecdsa::ErrorType;
 
 pub struct Round0 {
     pub party_i: u16,

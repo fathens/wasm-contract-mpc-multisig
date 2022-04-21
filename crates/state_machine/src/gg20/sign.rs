@@ -31,16 +31,16 @@ use thiserror::Error;
 
 use mpc_ecdsa::utilities::mta::MessageA;
 
-use mpc_ecdsa::gg20;
+use crate::gg20::keygen::LocalKey;
 use curv::elliptic::curves::secp256_k1::Secp256k1;
 use gg20::party_i::{SignBroadcastPhase1, SignDecommitPhase1, SignatureRecid};
-use crate::gg20::keygen::LocalKey;
+use mpc_ecdsa::gg20;
 
 mod fmt;
 mod rounds;
 
-use mpc_ecdsa::utilities::zk_pdl_with_slack::PDLwSlackProof;
 use curv::BigInt;
+use mpc_ecdsa::utilities::zk_pdl_with_slack::PDLwSlackProof;
 use rounds::*;
 pub use rounds::{CompletedOfflineStage, Error as ProceedError, PartialSignature};
 
@@ -661,8 +661,8 @@ mod test {
     use sha2::Sha256;
 
     use super::*;
-    use gg20::party_i::verify;
     use crate::gg20::keygen::test::simulate_keygen;
+    use gg20::party_i::verify;
 
     fn simulate_offline_stage(
         local_keys: Vec<LocalKey<Secp256k1>>,

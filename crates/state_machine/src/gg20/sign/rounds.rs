@@ -17,14 +17,14 @@ use round_based::Msg;
 
 use mpc_ecdsa::utilities::mta::{MessageA, MessageB};
 
-use mpc_ecdsa::gg20;
-use mpc_ecdsa::utilities::zk_pdl_with_slack::PDLwSlackProof;
+use crate::gg20::keygen::LocalKey;
 use curv::cryptographic_primitives::proofs::sigma_correct_homomorphic_elgamal_enc::HomoELGamalProof;
 use curv::cryptographic_primitives::proofs::sigma_valid_pedersen::PedersenProof;
 use gg20::party_i::{
     LocalSignature, SignBroadcastPhase1, SignDecommitPhase1, SignKeys, SignatureRecid,
 };
-use crate::gg20::keygen::LocalKey;
+use mpc_ecdsa::gg20;
+use mpc_ecdsa::utilities::zk_pdl_with_slack::PDLwSlackProof;
 use mpc_ecdsa::ErrorType;
 
 type Result<T, E = Error> = std::result::Result<T, E>;

@@ -7,11 +7,9 @@ use structopt::StructOpt;
 use curv::arithmetic::Converter;
 use curv::BigInt;
 
-use state_machine::gg20::sign::{
-    OfflineStage, SignManual,
-};
 use round_based::async_runtime::AsyncProtocol;
 use round_based::Msg;
+use state_machine::gg20::sign::{OfflineStage, SignManual};
 
 mod gg20_sm_client;
 use gg20_sm_client::join_computation;
