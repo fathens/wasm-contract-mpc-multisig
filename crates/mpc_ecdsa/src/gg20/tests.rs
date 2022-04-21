@@ -26,8 +26,8 @@ use crate::gg20::party_i::{
 use crate::utilities::mta::{MessageA, MessageB};
 use curv::arithmetic::traits::Converter;
 
-use crate::ErrorType;
 use crate::utilities::zk_pdl_with_slack::PDLwSlackProof;
+use crate::ErrorType;
 use curv::cryptographic_primitives::hashing::{Digest, DigestExt};
 use curv::cryptographic_primitives::proofs::sigma_dlog::DLogProof;
 use curv::cryptographic_primitives::proofs::sigma_valid_pedersen::PedersenProof;

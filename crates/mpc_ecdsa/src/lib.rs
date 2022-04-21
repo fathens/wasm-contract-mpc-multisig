@@ -1,6 +1,6 @@
+pub mod error;
 pub mod gg20;
 pub mod utilities;
-pub mod error;
 
 pub use error::Error;
 pub use error::ErrorType;

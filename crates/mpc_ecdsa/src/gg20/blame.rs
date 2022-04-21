@@ -14,8 +14,8 @@
 
     @license GPL-3.0+ <https://github.com/KZen-networks/multi-party-ecdsa/blob/master/LICENSE>
 */
-use crate::ErrorType;
 use crate::utilities::mta::{MessageA, MessageB};
+use crate::ErrorType;
 use curv::cryptographic_primitives::proofs::sigma_ec_ddh::ECDDHProof;
 use curv::cryptographic_primitives::proofs::sigma_ec_ddh::ECDDHStatement;
 use curv::cryptographic_primitives::proofs::sigma_ec_ddh::ECDDHWitness;
