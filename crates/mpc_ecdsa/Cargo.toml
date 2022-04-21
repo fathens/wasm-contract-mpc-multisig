@@ -1,0 +1,36 @@
+[package]
+name = "mpc_ecdsa"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["curv-kzen/rust-gmp-kzen"]
+
+[dependencies]
+num-integer = "~0.1"
+strum = "~0.23"
+strum_macros = "~0.23"
+derive-new = "~0.5"
+tinyvec = "~1.5"
+derive_more = "~0.99"
+getset = "~0.1"
+
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+curv-kzen = { version = "0.9", default-features = false }
+zk-paillier = { version = "0.4.3", default-features = false }
+sha2 = "0.9"
+thiserror = "1.0.23"
+zeroize = "1"
+centipede = { version = "0.3", default-features = false }
+libsecp256k1 = "0.3.2"
+
+[dependencies.paillier]
+version = "0.4.2"
+package = "kzen-paillier"
+default-features = false
+
+[dependencies.class_group]
+version = "0.6"
+default-features = false
+optional = true
