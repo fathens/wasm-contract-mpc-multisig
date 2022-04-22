@@ -12,7 +12,7 @@ use curv::{
     BigInt,
 };
 
-use reqwest::Client;
+use reqwest::blocking::Client;
 use serde::{Deserialize, Serialize};
 
 pub type Key = String;
@@ -93,7 +93,7 @@ where
             .json(&body)
             .send();
 
-        if let Ok(mut res) = res {
+        if let Ok(res) = res {
             return Some(res.text().unwrap());
         }
         thread::sleep(retry_delay);
