@@ -1,3 +1,5 @@
+#![allow(clippy::type_complexity)]
+
 //! High-level keygen protocol implementation
 
 use std::fmt;

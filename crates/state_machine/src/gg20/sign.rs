@@ -1,3 +1,5 @@
+#![allow(clippy::type_complexity)]
+
 //! # High-level threshold signing protocol implementation
 //!
 //! Key feature of GG20 protocol is one-round online signing, meaning that every party needs to
